@@ -32,12 +32,16 @@ Actuator: Servo Motor for pickup and drop mechanism
 
 3. My Contribution: Regulated Redundant Power Supply (RPS)
 My core responsibility was the design and fabrication of a critical safety subsystem: a Regulated Redundant Power Supply (RPS) for the flight controller and companion computer.
+
 Problem Statement
 A failure of the main 6S flight battery or its power distribution system is a catastrophic single point of failure. This would result in an immediate loss of power to the Pixhawk flight controller and the Jetson Nano, leading to a complete loss of the aircraft.
+
 Solution: The RPS
 To mitigate this risk, I developed an independent power module that ensures the drone's "brain" remains active even if the main power fails. This provides a crucial window for a controlled descent, data logging, or recovery.
+
 Key Features of the RPS:
 Power Redundancy: The RPS is built around a secondary 2S LiPo battery, which automatically provides power to the flight controller if the main 6S battery voltage drops or is disconnected.
 Battery Protection: An integrated 2S Battery Management System (BMS) protects the backup LiPo from over-charge, over-discharge, and short-circuits, ensuring its health and readiness.
 Stable Power for Companion Computer: The module includes an onboard 5V step-down (buck) converter that supplies clean, regulated power directly to the Jetson Nano. This isolates the sensitive computer from potential voltage spikes or sags from the main power system, preventing data corruption or reboots during flight.
+
 This RPS design significantly enhances the drone's reliability and resilience, protecting valuable onboard components and mission-critical data.
